@@ -1,0 +1,140 @@
+{
+  "Patient": [
+    {
+      "path": "$.id",
+      "counterName": "Patient"
+    },
+    {
+      "path": "$.identifier[?(@.system==\"https://UKFAU.de/pid\")].value",
+      "counterName": "Patient"
+    }
+  ],
+  "Encounter": [
+    {
+      "path": "$.id",
+      "counterName": "Encounter"
+    },
+    {
+      "path": "$.identifier[?(@.system==\"http://dummyurl\")].value",
+      "counterName": "Encounter"
+    },
+    {
+      "path": "$.subject.identifier.value",
+      "counterName": "Patient"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
+    }
+  ],
+  "Observation": [
+    {
+      "path": "$.id",
+      "counterName": "Observation"
+    },
+    {
+      "path": "$.identifier[?(@.system==\"https://UKE.de/befund\")].value",
+      "counterName": "Observation"
+    },
+    {
+      "path": "$.encounter.identifier.value",
+      "counterName": "Encounter"
+    },
+    {
+      "path": "$.subject.identifier.value",
+      "counterName": "Patient"
+    },
+    {
+      "path": "$.encounter.reference",
+      "counterName": "Encounter",
+      "refPrefix": "Encounter/"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
+    }
+  ],
+  "Condition": [
+    {
+      "path": "$.id",
+      "counterName": "Condition"
+    },
+    {
+      "path": "$.identifier[?(@.system==\"https://UKE.de/condition\")].value",
+      "counterName": "Condition"
+    },
+    {
+      "path": "$.subject.identifier.value",
+      "counterName": "Patient"
+    },
+    {
+      "path": "$.encounter.reference",
+      "counterName": "Encounter",
+      "refPrefix": "Encounter/"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
+    }
+  ],
+  "Procedure": [
+    {
+      "path": "$.id",
+      "counterName": "Procedure"
+    },
+    {
+      "path": "$.identifier[?(@.system==\"https://UKE.de/procedure\")].value",
+      "counterName": "Procedure"
+    },
+    {
+      "path": "$.encounter.identifier.value",
+      "counterName": "Encounter"
+    },
+    {
+      "path": "$.subject.identifier.value",
+      "counterName": "Patient"
+    },
+    {
+      "path": "$.encounter.reference",
+      "counterName": "Encounter",
+      "refPrefix": "Encounter/"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
+    }
+  ],
+  "Specimen": [
+    {
+      "path": "$.id",
+      "counterName": "Specimen"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
+    }
+  ],
+  "MedicationStatement": [
+    {
+      "path": "$.id",
+      "counterName": "MedicationStatement"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
+    },
+    {
+      "path": "$.context.reference",
+      "counterName": "Encounter",
+      "refPrefix": "Encounter/"
+    }
+  ],
+  "Medication": [
+  ]
+}

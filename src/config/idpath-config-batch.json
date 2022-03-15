@@ -1,0 +1,73 @@
+{
+  "Patient": [
+    {
+      "path": "$.id",
+      "counterName": "Patient"
+    },
+    {
+      "path": "$.identifier[?(@.system==\"https://fhir.diz.uk-erlangen.de/NamingSystem/patientId\")].value",
+      "counterName": "Patient"
+    }
+  ],
+  "Encounter": [
+    {
+      "path": "$.id",
+      "counterName": "Encounter"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
+    }
+  ],
+  "Observation": [
+    {
+      "path": "$.id",
+      "counterName": "Observation"
+    },
+    {
+      "path": "$.encounter.reference",
+      "counterName": "Encounter",
+      "refPrefix": "Encounter/"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
+    }
+  ],
+  "Condition": [
+    {
+      "path": "$.id",
+      "counterName": "Condition"
+    },
+    {
+      "path": "$.encounter.reference",
+      "counterName": "Encounter",
+      "refPrefix": "Encounter/"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
+    }
+  ],
+  "Procedure": [
+    {
+      "path": "$.id",
+      "counterName": "Procedure"
+    },
+    {
+      "path": "$.identifier[?(@.system==\"https://fhir.diz.uk-erlangen/NamingSystem/kdbSurrogateProcedureId\")].value",
+      "counterName": "Procedure"
+    },
+    {
+      "path": "$.encounter.identifier.value",
+      "counterName": "Encounter"
+    },
+    {
+      "path": "$.subject.identifier.value",
+      "counterName": "Patient"
+    }
+  ]
+}

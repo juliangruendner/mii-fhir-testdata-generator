@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  testdatagenerator:
+    build:
+      .
+    volumes:
+      - .:/opt/testdata-generator
+      - ./output:/opt/testdata-generator/output
+    entrypoint: sh -c "tail -f /dev/null"

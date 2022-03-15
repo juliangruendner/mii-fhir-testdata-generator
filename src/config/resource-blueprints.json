@@ -1,0 +1,196 @@
+{
+  "Patient":{
+    "resourceType": "Patient",
+    "id": "UKFAU-0001",
+    "meta": {
+      "profile": [ "https://www.medizininformatik-initiative.de/fhir/core/modul-person/StructureDefinition/Patient" ]
+    },
+    "identifier": [ {
+      "use": "usual",
+      "type": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+          "code": "MR"
+        } ]
+      },
+      "system": "https://UKFAU.de/pid",
+      "value": "UKFAU-0001"
+    } ],
+    "name": [ {
+      "use": "official",
+      "family": "y",
+      "given": [ "x" ]
+    } ],
+    "gender": "male",
+    "birthDate": "1959-01-01"
+  },
+  "Encounter":{
+    "resourceType": "Encounter",
+    "id": "UKFAU-0001-E-1",
+    "meta": {
+      "profile": [ "https://www.medizininformatik-initiative.de/fhir/core/modul-fall/StructureDefinition/KontaktGesundheitseinrichtung" ]
+    },
+    "identifier": [ {
+      "type": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+          "code": "VN"
+        } ]
+      },
+      "system": "http://dummyurl",
+      "value": "UKFAU-0001-E-1",
+      "assigner": {
+        "identifier": {
+          "system": "https://www.medizininformatik-initiative.de/fhir/core/NamingSystem/org-identifier",
+          "value": "UKFAU"
+        }
+      }
+    } ],
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "IMP",
+      "display": "inpatient encounter"
+    },
+    "subject": {
+      "reference": "Patient/UKFAU-0001"
+    },
+    "period": {
+      "start": "2020-05-13T00:00:00+02:00",
+      "end": "2020-05-18T00:00:00+02:00"
+    }
+  },
+  "Condition": {
+    "resourceType": "Condition",
+    "id": "UKE-0017-CD-1",
+    "meta": {
+      "profile": [
+        "https://www.medizininformatik-initiative.de/fhir/core/modul-diagnose/StructureDefinition/Diagnose"
+      ]
+    },
+    "identifier": [
+      {
+        "value": "UKE-0017-CD-1",
+        "system": "https://UKE.de/condition"
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://fhir.de/CodeSystem/bfarm/icd-10-gm",
+          "version": "2020",
+          "code": "F33.0"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/UKE-0017"
+    },
+    "recordedDate": "2020-01-21T00:00:00+01:00"
+  },
+  "Observation": {
+    "resourceType": "Observation",
+    "id": "UKE-0017-E-1-OL-1",
+    "meta": {
+      "profile": [
+        "https://www.medizininformatik-initiative.de/fhir/core/modul-labor/StructureDefinition/ObservationLab"
+      ]
+    },
+    "identifier": [
+      {
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "code": "OBI"
+            }
+          ]
+        },
+        "system": "https://UKE.de/befund",
+        "value": "UKE-0017-E-1-OL-1",
+        "assigner": {
+          "identifier": {
+            "system": "https://www.medizininformatik-initiative.de/fhir/core/NamingSystem/org-identifier",
+            "value": "UKE"
+          }
+        }
+      }
+    ],
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "Laboratory"
+          },
+          {
+            "system": "http://loinc.org",
+            "code": "26436-6",
+            "display": "Laboratory studies (set)"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "59260-0"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/UKE-0017"
+    },
+    "encounter": {
+      "reference": "Encounter/UKE-0017-E-1"
+    },
+    "effectiveDateTime": "2020-01-21T00:00:00+01:00",
+    "valueQuantity": {
+      "value": 8.3,
+      "unit": "gram per deciliter",
+      "system": "http://unitsofmeasure.org",
+      "code": "g/dL"
+    }
+  },
+  "Procedure": {
+    "resourceType": "Procedure",
+    "id": "UKB-0001-E-1-P-3",
+    "meta": {
+      "profile": [
+        "https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Procedure"
+      ]
+    },
+    "status": "completed",
+    "category": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "103693007",
+          "display": "Diagnostic procedure"
+        }
+      ]
+    },
+    "identifier": [
+      {
+        "system": "https://UKE.de/procedure",
+        "value": "UKE-0017-E-1-OL-1"
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://fhir.de/CodeSystem/bfarm/ops",
+          "version": "2020",
+          "code": "1-447"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/UKB-0001"
+    },
+    "performedDateTime": "2020-08-02T00:00:00+02:00"
+  }
+}
