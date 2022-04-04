@@ -37,7 +37,7 @@ class Generator {
 
   genEnum(params) {
     var len = params['options'].length
-    var index = this.fake.random.number({"max": len - 1})
+    var index = this.fake.datatype.number({"max": len - 1})
     return params['options'][index]
   }
 
