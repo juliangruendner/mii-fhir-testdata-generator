@@ -5,7 +5,7 @@
       "counterName": "Patient"
     },
     {
-      "path": "$.identifier[?(@.system==\"https://fhir.diz.uk-erlangen.de/NamingSystem/patientId\")].value",
+      "path": "$.identifier[?(@.system==\"https://UKFAU.de/pid\")].value",
       "counterName": "Patient"
     }
   ],
@@ -15,12 +15,17 @@
       "counterName": "Encounter"
     },
     {
-      "path": "$.identifier[?(@.system==\"https://fhir.diz.uk-erlangen.de/NamingSystem/encounterId\")].value",
+      "path": "$.identifier[?(@.system==\"http://dummyurl\")].value",
       "counterName": "Encounter"
     },
     {
       "path": "$.subject.identifier.value",
       "counterName": "Patient"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
     }
   ],
   "Observation": [
@@ -29,7 +34,7 @@
       "counterName": "Observation"
     },
     {
-      "path": "$.identifier[?(@.system==\"https://fhir.diz.uk-erlangen.de/NamingSystem/swisslab/labObservationId\")].value",
+      "path": "$.identifier[?(@.system==\"https://UKE.de/befund\")].value",
       "counterName": "Observation"
     },
     {
@@ -39,6 +44,16 @@
     {
       "path": "$.subject.identifier.value",
       "counterName": "Patient"
+    },
+    {
+      "path": "$.encounter.reference",
+      "counterName": "Encounter",
+      "refPrefix": "Encounter/"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
     }
   ],
   "Condition": [
@@ -47,12 +62,22 @@
       "counterName": "Condition"
     },
     {
-      "path": "$.identifier[?(@.system==\"https://fhir.diz.uk-erlangen/NamingSystem/kdbSurrogateConditionId\")].value",
+      "path": "$.identifier[?(@.system==\"https://UKE.de/condition\")].value",
       "counterName": "Condition"
     },
     {
       "path": "$.subject.identifier.value",
       "counterName": "Patient"
+    },
+    {
+      "path": "$.encounter.reference",
+      "counterName": "Encounter",
+      "refPrefix": "Encounter/"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
     }
   ],
   "Procedure": [
@@ -61,7 +86,7 @@
       "counterName": "Procedure"
     },
     {
-      "path": "$.identifier[?(@.system==\"https://fhir.diz.uk-erlangen/NamingSystem/kdbSurrogateProcedureId\")].value",
+      "path": "$.identifier[?(@.system==\"https://UKE.de/procedure\")].value",
       "counterName": "Procedure"
     },
     {
@@ -71,6 +96,45 @@
     {
       "path": "$.subject.identifier.value",
       "counterName": "Patient"
+    },
+    {
+      "path": "$.encounter.reference",
+      "counterName": "Encounter",
+      "refPrefix": "Encounter/"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
     }
+  ],
+  "Specimen": [
+    {
+      "path": "$.id",
+      "counterName": "Specimen"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
+    }
+  ],
+  "MedicationStatement": [
+    {
+      "path": "$.id",
+      "counterName": "MedicationStatement"
+    },
+    {
+      "path": "$.subject.reference",
+      "counterName": "Patient",
+      "refPrefix": "Patient/"
+    },
+    {
+      "path": "$.context.reference",
+      "counterName": "Encounter",
+      "refPrefix": "Encounter/"
+    }
+  ],
+  "Medication": [
   ]
 }
